@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Base.Example.Domain\Project.Base.Example.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Project.Base.Domain">
+      <HintPath>..\..\Project.Base\Project.Base.Domain\bin\Debug\net7.0\Project.Base.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Project.Base.Repository">
+      <HintPath>..\..\Project.Base\Project.Base.Repository\bin\Debug\net7.0\Project.Base.Repository.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

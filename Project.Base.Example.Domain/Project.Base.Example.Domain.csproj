@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Project.Base.Contracts">
+      <HintPath>..\..\Project.Base\Project.Base.Contracts\bin\Debug\net7.0\Project.Base.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Project.Base.Domain">
+      <HintPath>..\..\Project.Base\Project.Base.Domain\bin\Debug\net7.0\Project.Base.Domain.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Converter\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Base.Example.Enumerators\Project.Base.Example.Enumerators.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Base.Example.Enumerators\Project.Base.Example.Enumerators.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Project.Base.Contracts">
+      <HintPath>..\..\Project.Base\Project.Base.Contracts\bin\Debug\net7.0\Project.Base.Contracts.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
