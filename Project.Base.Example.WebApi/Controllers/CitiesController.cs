@@ -47,9 +47,21 @@ namespace Project.Base.Example.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status429TooManyRequests)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public new Task<ActionResult<DtoOutput<DtoCity>>> Find([FromQuery] int page, [FromQuery] int limit, [FromQuery] EnumOrder order, [FromQuery] string? searchTarget, [FromQuery] string searchTerm)
+        public new Task<ActionResult<DtoOutput<DtoCity>>> Find([FromQuery] int page, [FromQuery] int limit, [FromQuery] EnumOrder order, [FromQuery] string? searchTarget, [FromQuery] string? searchTerm)
         {
             return base.Find(page, limit, order, searchTarget, searchTerm);
+        }
+
+        [HttpGet("/All")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status429TooManyRequests)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public Task<ActionResult<DtoOutput<DtoCity>>> FindAll()
+        {
+            return base.FindAll();
         }
 
         [HttpPut()]

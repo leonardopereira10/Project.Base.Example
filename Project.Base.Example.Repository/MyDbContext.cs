@@ -11,11 +11,6 @@ namespace Project.Base.Example.Repository
 
         public DbSet<City> Cities { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            _ = optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Test");
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -16,9 +16,10 @@ namespace Project.Base.Example.Domain.Validators
             _ = RuleFor(x => x)
                 .Must(x =>
                 {
-                    string value = Regex.Match(x.PostalCode, City.POSTAL_CODE_PATTERN[x.Country]).Value.Replace("-", string.Empty);
-                    return value == x.PostalCode.Replace("-", string.Empty);
+                    Match match = Regex.Match(x.PostalCode, City.POSTAL_CODE_PATTERN[x.Country]);
+                    return match.Success && match.Value.Replace("-", string.Empty) == x.PostalCode.Replace("-", string.Empty);
                 })
+                .OverridePropertyName(x => x.PostalCode)
                 .WithMessage("postal code invalido");
         }
     }

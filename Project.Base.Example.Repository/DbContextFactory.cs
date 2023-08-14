@@ -7,7 +7,7 @@ namespace Project.Base.Example.Repository
     {
         public MyDbContext CreateDbContext(string[] args)
         {
-            string stringDeConexao = "Server='DESKTOP-ISJ1TBU:1433'; Database='Example'; User Id='sa'; Password='admin';";
+            string stringDeConexao = "Data Source='192.168.1.9';Database='Example';User Id='sa';Password='admin';Trusted_Connection=false;MultipleActiveResultSets=true;TrustServerCertificate=true;";
 
             DbContextOptionsBuilder<MyDbContext> builder = new();
             _ = builder.UseSqlServer(stringDeConexao, opcoes =>

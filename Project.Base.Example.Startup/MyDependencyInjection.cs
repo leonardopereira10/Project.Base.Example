@@ -18,9 +18,9 @@ namespace Project.Base.Example.Startup
 
         public static void ExecuteMigrations(this IApplicationBuilder application)
         {
-            using IServiceScope scope = application.ApplicationServices.CreateScope();
+            IServiceScope scope = application.ApplicationServices.CreateScope();
             MyDbContext db = scope.ServiceProvider.GetRequiredService<MyDbContext>();
-            _ = db.Database.EnsureCreated();
+
             db.Database.Migrate();
         }
 
@@ -34,7 +34,7 @@ namespace Project.Base.Example.Startup
             _ = services.AddDbContext<MyDbContext>(options =>
             {
                 _ = options.UseSqlServer(
-                    "Data Source='DESKTOP-ISJ1TBU';Database='Example';User Id='sa';Password='admin';Trusted_Connection=True;MultipleActiveResultSets=true;"
+                    "Data Source='192.168.1.9';Database='Example';User Id='sa';Password='admin';Trusted_Connection=false;MultipleActiveResultSets=true;TrustServerCertificate=true;"
                   , opt => opt.MigrationsAssembly("Project.Base.Example.Repository"));
             });
 
