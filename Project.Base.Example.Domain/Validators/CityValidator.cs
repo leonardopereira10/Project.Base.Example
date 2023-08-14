@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using System.Text.RegularExpressions;
+using FluentValidation;
 using Project.Base.Domain.Validators;
 using Project.Base.Example.Domain.Objects;
 
@@ -10,11 +11,15 @@ namespace Project.Base.Example.Domain.Validators
         {
             _ = RuleFor(x => x.PostalCode)
                 .NotEmpty()
-                .WithMessage("");
+                .WithMessage("Sem nome");
 
-            _ = RuleFor(x => x.PostalCode)
-                .Matches(y => City.POSTAL_CODE_PATTERN[y.Country])
-                .WithMessage("");
+            _ = RuleFor(x => x)
+                .Must(x =>
+                {
+                    string value = Regex.Match(x.PostalCode, City.POSTAL_CODE_PATTERN[x.Country]).Value.Replace("-", string.Empty);
+                    return value == x.PostalCode.Replace("-", string.Empty);
+                })
+                .WithMessage("postal code invalido");
         }
     }
 }

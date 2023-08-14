@@ -16,15 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Converter\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.7.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Project.Base.Example.Contracts\Project.Base.Example.Contracts.csproj" />
     <ProjectReference Include="..\Project.Base.Example.Enumerators\Project.Base.Example.Enumerators.csproj" />
   </ItemGroup>
 

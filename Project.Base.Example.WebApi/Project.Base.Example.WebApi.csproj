@@ -6,15 +6,31 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>3b461e10-87df-4ff1-9964-a82be79f769e</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Project.Base.Example.Contracts\Project.Base.Example.Contracts.csproj" />
+    <ProjectReference Include="..\Project.Base.Example.Startup\Project.Base.Example.Startup.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Project.Base.Contracts">
+      <HintPath>..\..\Project.Base\Project.Base.Contracts\bin\Debug\net7.0\Project.Base.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Project.Base.Enumerators">
+      <HintPath>..\..\Project.Base\Project.Base.Repository\bin\Debug\net7.0\Project.Base.Enumerators.dll</HintPath>
+    </Reference>
     <Reference Include="Project.Base.WebApi">
       <HintPath>..\..\Project.Base\Project.Base.WebApi\bin\Debug\net7.0\Project.Base.WebApi.dll</HintPath>
     </Reference>
